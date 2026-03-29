@@ -14,6 +14,10 @@ public class Participante extends Usuario implements Classificavel {
         this.pontuacaoTotal += pontos;
     }
 
+    public void zerarPontuacao() {
+        this.pontuacaoTotal = 0;
+    }
+
     @Override
     public int getPontuacaoTotal() {
         return pontuacaoTotal;
