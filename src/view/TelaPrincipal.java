@@ -1,6 +1,7 @@
 package view;
 
 import model.Aposta;
+import model.Campeonato;
 import model.Clube;
 import model.GrupoApostas;
 import model.Partida;
@@ -15,14 +16,18 @@ import java.util.List;
 public class TelaPrincipal extends JFrame {
 
     private GrupoApostas grupo;
+    private Campeonato campeonato;
     private List<Clube> clubes;
     private List<Partida> partidas;
     private JTextArea areaTexto;
 
     public TelaPrincipal() {
         grupo = new GrupoApostas("Grupo Copa");
-        clubes = new ArrayList<>();
-        partidas = new ArrayList<>();
+
+        campeonato = new Campeonato("Brasileirão");
+
+        clubes = campeonato.getClubes();
+        partidas = campeonato.getPartidas();
 
         setTitle("Sistema de Apostas - Campeonato de Futebol");
         setSize(700, 500);
@@ -85,8 +90,16 @@ public class TelaPrincipal extends JFrame {
         String nome = JOptionPane.showInputDialog(this, "Digite o nome do clube:");
         if (nome != null && !nome.trim().isEmpty()) {
             Clube clube = new Clube(nome);
-            clubes.add(clube);
-            areaTexto.append("Clube cadastrado: " + nome + "\n");
+            boolean adicionado = campeonato.adicionarClube(clube);
+
+            if (adicionado) {
+                areaTexto.append("Clube cadastrado: " + nome + "\n");
+            } else {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Limite máximo de 8 clubes atingido."
+                );
+            }
         }
     }
 

@@ -3,7 +3,15 @@ package model;
 public class Clube {
     private String nome;
 
+    public Clube() {
+        this.nome = "";
+    }
+
     public Clube(String nome) {
+        this.nome = nome;
+    }
+
+    public Clube(String nome, String cidade) {
         this.nome = nome;
     }
 
@@ -18,4 +26,5 @@ public class Clube {
     public String exibirResumo() {
         return "Clube: " + nome;
     }
+
 }

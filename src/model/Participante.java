@@ -3,7 +3,13 @@ package model;
 import interfaces.Classificavel;
 
 public class Participante extends Usuario implements Classificavel {
+
     private int pontuacaoTotal;
+
+    public Participante() {
+        super("");
+        this.pontuacaoTotal = 0;
+    }
 
     public Participante(String nome) {
         super(nome);

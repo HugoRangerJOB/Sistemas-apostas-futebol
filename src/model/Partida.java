@@ -10,6 +10,9 @@ public class Partida {
     private Integer golsCasa;
     private Integer golsVisitante;
 
+    public Partida() {
+    }
+
     public Partida(Clube clubeCasa, Clube clubeVisitante, LocalDateTime dataHora) {
         this.clubeCasa = clubeCasa;
         this.clubeVisitante = clubeVisitante;

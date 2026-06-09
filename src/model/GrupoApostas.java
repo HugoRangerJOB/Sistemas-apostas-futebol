@@ -9,6 +9,12 @@ public class GrupoApostas {
     private List<Participante> participantes;
     private List<Aposta> apostas;
 
+    public GrupoApostas() {
+        this.nome = "";
+        this.participantes = new ArrayList<>();
+        this.apostas = new ArrayList<>();
+    }
+
     public GrupoApostas(String nome) {
         this.nome = nome;
         this.participantes = new ArrayList<>();
