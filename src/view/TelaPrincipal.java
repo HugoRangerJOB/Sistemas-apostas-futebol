@@ -29,23 +29,52 @@ public class TelaPrincipal extends JFrame {
         clubes = campeonato.getClubes();
         partidas = campeonato.getPartidas();
 
-        setTitle("Sistema de Apostas - Campeonato de Futebol");
-        setSize(700, 500);
+        setTitle("Sistema de Apostas do Campeonato");
+        setSize(900, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
+        getContentPane().setBackground(
+                new Color(34, 40, 49)
+        );
 
-        JLabel titulo = new JLabel("Sistema de Apostas Futebol", SwingConstants.CENTER);
-        titulo.setFont(new Font("Arial", Font.BOLD, 22));
+        JLabel titulo = new JLabel("SISTEMA DE APOSTAS DO CAMPEONATO", SwingConstants.CENTER);
+        titulo.setFont(new Font("Segoe UI", Font.BOLD, 28));
+        titulo.setForeground(Color.WHITE);
+
+        titulo.setOpaque(true);
+
+        titulo.setBackground(
+                new Color(34, 40, 49)
+        );
+
         add(titulo, BorderLayout.NORTH);
 
         areaTexto = new JTextArea();
         areaTexto.setEditable(false);
-        areaTexto.setFont(new Font("Monospaced", Font.PLAIN, 14));
+        areaTexto.setBackground(
+                new Color(57, 62, 70)
+        );
+
+        areaTexto.setForeground(
+                Color.WHITE
+        );
+
+        areaTexto.setCaretColor(
+                Color.WHITE
+        );
+
+        areaTexto.setFont(
+                new Font("Consolas", Font.PLAIN, 14)
+        );
+
         JScrollPane scrollPane = new JScrollPane(areaTexto);
         add(scrollPane, BorderLayout.CENTER);
 
         JPanel painelBotoes = new JPanel();
+        painelBotoes.setBackground(
+                new Color(34, 40, 49)
+        );
         painelBotoes.setLayout(new GridLayout(2, 3, 10, 10));
 
         JButton btnCadastrarParticipante = new JButton("Cadastrar Participante");
@@ -61,6 +90,37 @@ public class TelaPrincipal extends JFrame {
         painelBotoes.add(btnRegistrarAposta);
         painelBotoes.add(btnRegistrarResultado);
         painelBotoes.add(btnVerClassificacao);
+
+        JButton[] botoes = {
+                btnCadastrarParticipante,
+                btnCadastrarClube,
+                btnCriarPartida,
+                btnRegistrarAposta,
+                btnRegistrarResultado,
+                btnVerClassificacao
+        };
+
+        for (JButton botao : botoes) {
+
+            botao.setFont(
+                    new Font("Segoe UI", Font.BOLD, 14)
+            );
+
+            botao.setFocusPainted(false);
+
+            botao.setBackground(
+                    new Color(57, 62, 70)
+            );
+
+            botao.setForeground(Color.WHITE);
+
+            botao.setBorder(
+                    BorderFactory.createLineBorder(
+                            new Color(0, 173, 181),
+                            2
+                    )
+            );
+        }
 
         add(painelBotoes, BorderLayout.SOUTH);
 
