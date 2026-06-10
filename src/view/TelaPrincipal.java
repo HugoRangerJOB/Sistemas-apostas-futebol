@@ -172,6 +172,11 @@ public class TelaPrincipal extends JFrame {
         String nomeCasa = JOptionPane.showInputDialog(this, "Nome do clube da casa:");
         String nomeVisitante = JOptionPane.showInputDialog(this, "Nome do clube visitante:");
 
+        areaTexto.append("\nClubes cadastrados:\n");
+
+        for (Clube clube : clubes) {
+            areaTexto.append("- " + clube.getNome() + "\n");
+        }
         Clube clubeCasa = buscarClubePorNome(nomeCasa);
         Clube clubeVisitante = buscarClubePorNome(nomeVisitante);
 
